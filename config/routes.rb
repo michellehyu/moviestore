@@ -6,6 +6,8 @@ Rails.application.routes.draw do
   resource :cart, only: [:show] do
     put 'add/:movie_id', to: 'carts#add', as: :add_to
     put 'remove/:movie_id', to: 'carts#remove', as: :remove_from
+    put 'later/:movie_id', to: 'carts#save_for_later', as: :move_from
+    put 'moveback/:movie_id', to: 'carts#move_to_cart', as: :move_to
   end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

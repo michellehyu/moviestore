@@ -7,4 +7,8 @@ class User < ActiveRecord::Base
   def cart_count
     $redis.scard "cart#{id}"
   end
+
+  def later_list_count
+    $redis.scard "laterlist#{id}"
+  end
 end
